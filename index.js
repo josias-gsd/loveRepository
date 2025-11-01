@@ -9,4 +9,4 @@ app.use(express.json());
 
 app.use("/", RouterNota);
 
-app.listen(3000, () => console.log("Servidor Voando 🚀"));
+app.listen(9002, () => console.log("Servidor Voando 🚀"));
