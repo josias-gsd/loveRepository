@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "my project",
+  "main": "index.js",
+  "engines": {"node": "18.x"},
+  "scripts": {"start": "node index.js"  ,
+    "test": "echo \"Error: no test specified\" && exit 1"
+    
+  },
+  "author": "josias Gentil",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^6.17.1",
+    "bcrypt": "^6.0.0",
+    "cloudinary": "^2.8.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "stream": "^0.0.3"
+  },
+  "devDependencies": {
+    "prisma": "^6.17.1"
+  }
+}
