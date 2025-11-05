@@ -1,10 +1,20 @@
 import express from "express";
-import RouterNota from "./Routers/router.js";
-
 import cors from "cors";
 
+import RouterNota from "./Routers/router.js";
+
 const app = express();
-app.use(cors());
+
+app.use(
+  cors({
+    origin: "https://josiasaby.netlify.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
+app.use(express.json());
+
 app.use(express.json());
 
 app.use("/", RouterNota);
