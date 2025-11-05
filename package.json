@@ -4,15 +4,17 @@
   "version": "1.0.0",
   "description": "my project",
   "main": "index.js",
-  "engines": {"node": "22.x"},
-  "scripts": {"start": "node index.js"  ,
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-    
   },
   "author": "josias Gentil",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^6.17.1",
+    "@prisma/client": "^6.18.0",
     "bcrypt": "^6.0.0",
     "cloudinary": "^2.8.0",
     "cors": "^2.8.5",

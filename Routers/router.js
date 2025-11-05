@@ -4,7 +4,7 @@ import multer from "multer";
 import stream from "stream";
 import cloudinary from "../cloudinary.js"; // agora o import default funciona
 const require = createRequire(import.meta.url);
-const { PrismaClient } = require("../generated/prisma");
+const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
