@@ -4,7 +4,7 @@ import multer from "multer";
 import stream from "stream";
 import cloudinary from "../cloudinary.js"; // agora o import default funciona
 const require = createRequire(import.meta.url);
-const { PrismaClient } = require("../generated/prisma");
+const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
@@ -27,7 +27,7 @@ function uploadToCloudinary(fileBuffer) {
     bufferStream.pipe(uploadStream);
   });
 }
-router.post("/criar", upload.array("photos", 5), async (req, res) => {
+router.post("/criar", upload.array("photos", 3), async (req, res) => {
   try {
     const { nome, data, hora, texto, link } = req.body;
 
@@ -58,6 +58,7 @@ router.post("/criar", upload.array("photos", 5), async (req, res) => {
 });
 
 router.get("/ver", async (req, res) => {
+  const start = Date.now();
   try {
     const notes = await prisma.user.findMany({
       select: {
@@ -76,6 +77,7 @@ router.get("/ver", async (req, res) => {
       ...user,
       photos: user.photos || [],
     }));
+    console.log(`⏱️ Tempo total backend: ${Date.now() - start} ms`);
     console.log("📦 Dados recebidos:", formatted);
     res.status(200).json(formatted);
   } catch (error) {
