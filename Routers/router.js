@@ -27,7 +27,7 @@ function uploadToCloudinary(fileBuffer) {
     bufferStream.pipe(uploadStream);
   });
 }
-router.post("/criar", upload.array("photos", 3), async (req, res) => {
+router.post("/criar", upload.array("photos", 5), async (req, res) => {
   try {
     const { nome, data, hora, texto, link } = req.body;
 
