@@ -85,17 +85,24 @@ router.get("/ver", async (req, res) => {
     res.status(500).json({ message: "Erro no Servidor!" });
   }
 });
-/*router.get("/ver/:id", async (req, res) => {
+router.get("/ver/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const notes = await prisma.note.findUnique({
+    const user = await prisma.user.findUnique({
       where: { id },
     });
-    res.status(200).json(notes);
+
+    if (!user) {
+      return res.status(404).json({ message: "Registro não encontrado" });
+    }
+
+    res.status(200).json(user);
   } catch (error) {
-    res.status(500).json({ message: "Erro no Servidor!" });
+    console.error("Erro ao buscar registro:", error);
+    res.status(500).json({ message: "Erro no servidor" });
   }
-});*/
+});
+
 router.delete("/deletar/:id", async (req, res) => {
   try {
     const { id } = req.params;
